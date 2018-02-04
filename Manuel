@@ -1,33 +1,38 @@
 Maglock Software
 Written by Sam Moore
-Last software update: 1/13/2018
-Last manuel update: 1/04/2018
+Last software update: 2/03/2018
+Last manuel update: 2/03/2018
 
 Maglock Software Folder Contents:
 	Switch_GUI
-	Manuel
+	Manuel(this)
 	Unlock sound file
-Note: Software may not funtion if any of these are missing from the folder.
+Note: Software may not function if any of these are missing from the folder.
 
 Setup:
 1.Connect each componet to the following GPIO pins:
 	1 button: 3
-	2 button: 14
-	3 button: 15
-	4 button: 18
+	2 button: 4
+	3 button: 17
+	4 button: 27
+	5 button: 22
+	6 button: 10
+	7 button: 9
+	8 button: 11
 	LED light: 2
-	MagLock: TBD (maglock funtionality coming soon)
+	Maglock: 5 (maglock funtionality coming soon)
+	*Don't forget to connect ground*
 2. Boot up Raspberry Pi.
 3. Open and run Switch_GUI
 Note: Be sure the crate is closed before booting software as maglock is set to activate on start.
 
 Password:
-The current password set is 12121212. To change the password, edit the array "self.code".
-Each digit of the password can only be '1', '2', '3', or '4' and can have any number of digits.
+The current password is set to 12121212. To change the password, edit the array self.code located at the __init__ function.
+Each digit of the password must be a string number between "1" and "8" and can have any number of digits.
 Note: Please update the manuel if the password is changed.
 
 UI Button Funtions:
 	Lock/Unlock: Toggles the maglock without having to enter password.
 	Reset Entry: Resets the current progress of entered password.
-	1-4: Allows gamemaster to enter password from remote.
+	1-8: Allows gamemaster to enter password from remote.
 	
