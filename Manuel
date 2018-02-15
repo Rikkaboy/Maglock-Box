@@ -1,13 +1,20 @@
 Maglock Software
 Written by Sam Moore
-Last software update: 2/03/2018
-Last manuel update: 2/03/2018
+Last software update: 2/14/2018
+Last manuel update: 2/14/2018
 
 Maglock Software Folder Contents:
 	Switch_GUI
 	Manuel(this)
-	Unlock sound file
-Note: Software may not function if any of these are missing from the folder.
+	8_button_click_b.wav
+	success_sound.wav
+	8_button_failure_short.wav
+Note: Software may not function correctly if any of these are missing from the folder.
+
+For First Time Use On Pi:
+To set up the start-on-boot sequence on a new Raspberry Pi follow the instructions in the link:
+http://www.instructables.com/id/Raspberry-Pi-Launch-Python-script-on-startup/
+
 
 Setup:
 1.Connect each componet to the following GPIO pins:
