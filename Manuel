@@ -1,7 +1,7 @@
 Maglock Software
 Written by Sam Moore
-Last software update: 2/14/2018
-Last manuel update: 2/14/2018
+Last software update: 2/17/2018
+Last manuel update: 2/17/2018
 
 Maglock Software Folder Contents:
 	Switch_GUI
@@ -30,7 +30,7 @@ Setup:
 	Maglock: 5 (maglock funtionality coming soon)
 	*Don't forget to connect ground*
 2. Boot up Raspberry Pi.
-3. Open and run Switch_GUI
+3. Open and run Switch_GUI (if start-on-boot is not set up)
 Note: Be sure the crate is closed before booting software as maglock is set to activate on start.
 
 Password:
