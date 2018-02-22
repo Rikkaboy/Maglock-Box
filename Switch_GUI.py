@@ -1,1 +1,0 @@
-/home/pi/Switch_GUI.py
