@@ -90,7 +90,7 @@ class Application(Frame):
         if self.button1 == False:
             self.PressButton("1")
         if self.button2 == False:
-            self.Press2Button("2")
+            self.PressButton("2")
         if self.button3 == False:
             self.PressButton("3")
         if self.button4 == False:
