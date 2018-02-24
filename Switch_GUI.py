@@ -26,7 +26,12 @@ class Application(Frame):
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
+        GPIO.setup(5, GPIO.OUT)
         GPIO.setup(2, GPIO.OUT)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(2, GPIO.LOW)
+        
+
         
         
     def create_widgets(self):
@@ -122,8 +127,9 @@ class Application(Frame):
         GPIO.output(2, GPIO.HIGH)
 
         
-        self.chime.play()
+        
         if self.locked:
+            self.chime.play()
             GPIO.output(5, GPIO.LOW)
             self.locked = False
             self.lbl['text'] = "Status: Unlocked"
