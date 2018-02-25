@@ -1,3 +1,5 @@
+#!/usr/bin/python3.4
+
 from tkinter import *
 import RPi.GPIO as GPIO
 import time
