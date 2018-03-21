@@ -76,22 +76,30 @@ class Application(Frame):
         GPIO.setwarnings(False)
 
         GPIO.setup(3, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 8
         GPIO.setup(4, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 6
         GPIO.setup(17, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 3
         GPIO.setup(27, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 1
         GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 5
         GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 2
         GPIO.setup(9, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 4
         GPIO.setup(11, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		#button position 7
 
-        self.button1 = GPIO.input(3)
-        self.button2 = GPIO.input(4)
+        self.button1 = GPIO.input(27)
+        self.button2 = GPIO.input(10)
         self.button3 = GPIO.input(17)
-        self.button4 = GPIO.input(27)
+        self.button4 = GPIO.input(9)
         self.button5 = GPIO.input(22)
-        self.button6 = GPIO.input(10)
-        self.button7 = GPIO.input(9)
-        self.button8 = GPIO.input(11)
+        self.button6 = GPIO.input(4)
+        self.button7 = GPIO.input(11)
+        self.button8 = GPIO.input(3)
         
         
         if self.button1 == False:
