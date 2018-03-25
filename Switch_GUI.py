@@ -32,6 +32,16 @@ class Application(Frame):
         GPIO.setup(2, GPIO.OUT)
         GPIO.output(5, GPIO.HIGH)
         GPIO.output(2, GPIO.LOW)
+
+        #button states
+        self.state1 = True
+        self.state2 = True
+        self.state3 = True
+        self.state4 = True
+        self.state5 = True
+        self.state6 = True
+        self.state7 = True
+        self.state8 = True
         
 
         
@@ -103,22 +113,61 @@ class Application(Frame):
         
         
         if self.button1 == False:
-            self.PressButton("1")
+            if self.state1:
+                self.PressButton("1")
+                self.state1 = False
+        else:
+            self.state1 = True
+            
         if self.button2 == False:
-            self.PressButton("2")
+            if self.state2:
+                self.PressButton("2")
+                self.state2 = False
+        else:
+            self.state2 = True
+            
         if self.button3 == False:
-            self.PressButton("3")
+            if self.state3:
+                self.PressButton("3")
+                self.state3 = False
+        else:
+            self.state3 = True
+            
         if self.button4 == False:
-            self.PressButton("4")
+            if self.state4:
+                self.PressButton("4")
+                self.state4 = False
+        else:
+            self.state4 = True
+            
         if self.button5 == False:
-            self.PressButton("5")
+            if self.state5:
+                self.PressButton("5")
+                self.state5 = False
+        else:
+            self.state5 = True
+            
         if self.button6 == False:
-            self.PressButton("6")
+            if self.state6:
+                self.PressButton("6")
+                self.state6 = False
+        else:
+            self.state6 = True
+            
         if self.button7 == False:
-            self.PressButton("7")
+            if self.state7:
+                self.PressButton("7")
+                self.state7 = False
+        else:
+            self.state7 = True
+            
         if self.button8 == False:
-            self.PressButton("8")
-        self.after(250, self.PiButtons)
+            if self.state8:
+                self.PressButton("8")
+                self.state8 = False
+        else:
+            self.state8 = True
+        self.PiButtons
         
         
     def Reset(self):
@@ -150,7 +199,6 @@ class Application(Frame):
             self.lbl['text'] = "Status: Locked"
             self.bttn1['text'] = "Unlock"
         
-        time.sleep(12)
         GPIO.output(2, GPIO.LOW)
         self.progress = 0
 
