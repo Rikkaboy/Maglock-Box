@@ -1,0 +1,4 @@
+Sound Design
+	1. Edit the failure sound to make it sound more like a failure
+	2. Make a separate failure sound for how long they have gotten in the string (ie. it's resetting for every button press)
+
