@@ -22,9 +22,7 @@ class Application(Frame):
         self.progress = 0
         self.pressed = ''
 
-        self.create_widgets()
-        self.PiButtons()
-        self.bttn1
+        
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -42,11 +40,13 @@ class Application(Frame):
         self.state6 = True
         self.state7 = True
         self.state8 = True
-        
+        self.create_widgets()
+        self.PiButtons()
 
         
         
     def create_widgets(self):
+        
         #labels
         self.lbl = Label(self, text = "Status: Locked")
         self.lbl.grid(row = 0, column = 1)
@@ -79,7 +79,6 @@ class Application(Frame):
         self.bttnum7.grid(row = 6, column = 0)
         self.bttnum8 = Button(self, text = "8", command = partial(self.PressButton, "8"))
         self.bttnum8.grid(row = 6, column = 2)
-
     def PiButtons(self):
         #GPIO setup
         GPIO.setmode(GPIO.BCM)
@@ -110,7 +109,6 @@ class Application(Frame):
         self.button6 = GPIO.input(4)
         self.button7 = GPIO.input(11)
         self.button8 = GPIO.input(3)
-        
         
         if self.button1 == False:
             if self.state1:
@@ -167,8 +165,7 @@ class Application(Frame):
                 self.state8 = False
         else:
             self.state8 = True
-        self.PiButtons
-        
+        self.after(1, self.PiButtons)
         
     def Reset(self):
         self.progress = 0
