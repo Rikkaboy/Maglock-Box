@@ -20,7 +20,7 @@ class Application(Frame):
         
         #vars
         self.locked = True
-        self.code = ['1', '2', '3', '4', '5', '6', '7', '8']
+        self.code = ['2', '7', '4', '5', '8', '1', '3', '8', '6']
         self.progress = 0
         self.pressed = ''
 
@@ -31,9 +31,9 @@ class Application(Frame):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(5, GPIO.OUT)
-        GPIO.setup(2, GPIO.OUT)
+        #GPIO.setup(2, GPIO.OUT) #this is used for an LED indicator
         GPIO.output(5, GPIO.HIGH)
-        GPIO.output(2, GPIO.LOW)
+        #GPIO.output(2, GPIO.LOW)
         
 
         
