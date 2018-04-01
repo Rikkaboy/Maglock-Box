@@ -14,10 +14,15 @@ class Application(Frame):
         
         pygame.init()
         pygame.mixer.init()
-        self.chime = pygame.mixer.Sound('success_sound.wav')
+        self.success = pygame.mixer.Sound('success_sound.wav')
         self.failSnd = pygame.mixer.Sound('8_button_failure_short.wav')
         self.clickSnd = pygame.mixer.Sound('8_button_click_b.wav')
-        
+		#self.fail0 = pygame.mixer.Sound('sound file here.wav')
+		#self.fail1 = pygame.mixer.Sound('sound file here.wav')
+		#self.fail2 = pygame.mixer.Sound('sound file here.wav')
+		#self.fail3 = pygame.mixer.Sound('sound file here.wav')
+		#self.fail4 = pygame.mixer.Sound('sound file here.wav')
+		        
         #vars
         self.locked = True
         self.code = ['2', '7', '4', '5', '8', '1', '3', '8', '6']
@@ -142,9 +147,10 @@ class Application(Frame):
         
         
         if self.locked:
-            self.chime.play()
+            self.success.play()
             #GPIO.output(2, GPIO.LOW)
-            GPIO.output(5, GPIO.LOW)
+            timer.sleep(2.5) #to have the drawer open 3 seconds into the sound. Needs tested.
+			GPIO.output(5, GPIO.LOW)
             self.locked = False
             self.lbl['text'] = "Status: Unlocked"
             self.bttn1['text'] = "Lock"
@@ -181,8 +187,22 @@ class Application(Frame):
             self.progress += 1
             
         else:
-            self.failSnd.play()
-            time.sleep(2)
+            #add in failure sounds for how long they've pushed buttons
+			#if self.progress == 0 
+				#some failure sound without the clanking
+				#self.fail0.play()
+			#if self.progress == 1
+				#failure sound quick
+				#self.fail1.play()
+			#if self.progress == 2
+				#self.fail2.play()
+			#if self.progress == 3
+				#self.fail3.play()
+			#if self.progress >= 4
+				#self.fail4.play()
+			
+			self.failSnd.play() #cancel out this failure sound when length ones put in
+			time.sleep(2)
             self.progress = 0
             self.lbl1['text'] = "Code Entered: "
             for x in range(len(self.code)):
