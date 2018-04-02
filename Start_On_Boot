@@ -1,0 +1,21 @@
+How to set a python program to start on boot:
+
+1. Copy your .py file as well and any other needed files (ex: sound files) to /home/pi
+
+2. Open your terminal in /home/pi and type the following:
+	sudo nano .bashrc
+This line will create the file .bashrc and will now be opened in the terminal.
+
+3. At the bottom of the file enter:
+	python filename.py
+Save and exit the file. The the program will now automaticlly run whenever the terminal is opened.
+
+4. Returning to the terminal, enter:
+	sudo raspi-config
+A GUI will now appear in the terminal.
+
+5. Select option 3 "Boot Options" and select the following:
+	B1 Desktop / CLI
+	B2 Console Autologin
+	Finish
+Allow the system to reboot
