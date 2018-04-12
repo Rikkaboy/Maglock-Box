@@ -150,7 +150,7 @@ class Application(Frame):
             self.success.play()
             #GPIO.output(2, GPIO.LOW)
             timer.sleep(2.5) #to have the drawer open 3 seconds into the sound. Needs tested.
-			GPIO.output(5, GPIO.LOW)
+            GPIO.output(5, GPIO.LOW)
             self.locked = False
             self.lbl['text'] = "Status: Unlocked"
             self.bttn1['text'] = "Lock"
@@ -200,9 +200,9 @@ class Application(Frame):
 				#self.fail3.play()
 			#if self.progress >= 4
 				#self.fail4.play()
-			
-			self.failSnd.play() #cancel out this failure sound when length ones put in
-			time.sleep(2)
+            self.failSnd.play()
+			#cancel out this failure sound when length ones put in
+            time.sleep(2)
             self.progress = 0
             self.lbl1['text'] = "Code Entered: "
             for x in range(len(self.code)):
