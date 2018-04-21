@@ -28,7 +28,9 @@ class Application(Frame):
 		self.success9 = pygame.mixer.Sound('8b-success9open.wav')
 		self.fail0 = pygame.mixer.Sound('8b-fail-0.wav')
 		self.fail1 = pygame.mixer.Sound('8b-fail-1.wav')
-		        
+		self.fail2 = pygame.mixer.Sound('8b-fail-2.wav')
+		self.fail3 = pygame.mixer.Sound('8b-fail-3.wav')
+        
         #vars
         self.locked = True
         self.code = ['2', '7', '4', '5', '8', '1', '3', '8', '6']
@@ -46,7 +48,6 @@ class Application(Frame):
         GPIO.setup(5, GPIO.OUT)
         #GPIO.setup(2, GPIO.OUT) #this is used for an LED indicator
         GPIO.output(5, GPIO.HIGH)
-        #GPIO.output(2, GPIO.LOW)
         
 
         
@@ -147,36 +148,31 @@ class Application(Frame):
         #GPIO out
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
-        #GPIO.setup(2, GPIO.OUT)
         GPIO.setup(5, GPIO.OUT)
-        
-        #GPIO.output(2, GPIO.HIGH)
 
         
         
         if self.locked:
             self.success9.play()
 						
-            #GPIO.output(2, GPIO.LOW)
-            timer.sleep(2.5) #to have the drawer open 3 seconds into the sound. Needs tested.
+            time.sleep(2.5) #to have the drawer open 3 seconds into the sound. Needs tested.
 			GPIO.output(5, GPIO.LOW)
             self.locked = False
             self.lbl['text'] = "Status: Unlocked"
             self.bttn1['text'] = "Lock"
         else:
-            #GPIO.output(2, GPIO.HIGH)
             GPIO.output(5, GPIO.HIGH)
             self.locked = True
             self.lbl['text'] = "Status: Locked"
             self.bttn1['text'] = "Unlock"
         
         time.sleep(6)
-        #GPIO.output(2, GPIO.LOW)
         self.progress = 0
 
     def PressButton(self, val):
         self.pressed = val
         print(self.pressed)
+		#print(self.progress+1)
         self.CheckProgress()
         
     def CheckProgress(self):
@@ -187,23 +183,23 @@ class Application(Frame):
         if self.pressed == self.code[self.progress]:
             #self.clickSnd.play()
 			#play music for how long they have successes
-			if self.progress == 0
+			if self.progress == 0:
 				self.success1.play()
-			if self.progress == 1
+			if self.progress == 1:
 				self.success2.play()
-			if self.progress == 2
+			if self.progress == 2:
 				self.success3.play()
-			if self.progress == 3
+			if self.progress == 3:
 				self.success4.play()
-			if self.progress == 4
+			if self.progress == 4:
 				self.success5.play()
-			if self.progress == 5
+			if self.progress == 5:
 				self.success6.play()
-			if self.progress == 6
+			if self.progress == 6:
 				self.success7.play()
-			if self.progress == 7
+			if self.progress == 7:
 				self.success8.play()
-            time.sleep(1.5)
+            time.sleep(1)
             self.lbl1['text'] = "Code Entered: "
             for x in range(len(self.code)):
                 if x <= self.progress:
@@ -214,15 +210,14 @@ class Application(Frame):
             
         else:
             #failure sounds for how long they've pushed the wrong button
-			if progress >= 1
-				self.fail1.play()
-			if progress == 0
-				self.fail0.play()
-				
+			if progress >= 1:
+				#self.fail0.play()
+				self.fail2.play()
+			if progress == 0:
+				#self.fail1.play()
+				self.fail3.play()
 			
-			#self.failSnd.play() 
-			#cancel out this failure sound when length ones put in
-			time.sleep(2) #was 2 before I put in longer sounds
+			time.sleep(2)
             self.progress = 0
             self.lbl1['text'] = "Code Entered: "
             for x in range(len(self.code)):
