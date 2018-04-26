@@ -209,14 +209,7 @@ class Application(Frame):
             self.progress += 1
             
         else:
-            #failure sounds for how long they've pushed the wrong button
-			if progress >= 1:
-				#self.fail0.play()
-				self.fail2.play()
-			if progress == 0:
-				#self.fail1.play()
-				self.fail3.play()
-			
+            self.fail2.play()
 			time.sleep(2)
             self.progress = 0
             self.lbl1['text'] = "Code Entered: "
